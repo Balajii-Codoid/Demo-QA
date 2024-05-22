@@ -162,33 +162,5 @@ public class DemoPageContainer {
         } catch (Exception e) {
 
         }
-
-        if (getYamlData("testlodge.enable", System.getProperty(Constants.TESTLODGE)).equalsIgnoreCase("TRUE")) {
-
-            String strRunID = "";
-            String strIssueTrackerNumber = "";
-            scenarioStatus = String.valueOf(afterScenario.getStatus());
-            scenarioTags = String.valueOf(afterScenario.getSourceTagNames());
-            strTestcaseID = PatternHandlerUtil.getMatchContent("@S(\\d+)", scenarioTags);
-            System.out.println("\n strAccountID ---------------- " + strAccountID);
-            System.out.println("\n strTestRunID ---------------- " + strTestRunID);
-            System.out.println("\n strUsername ---------------- " + strUsername);
-            System.out.println("\n strPassword ---------------- " + strPassword);
-            System.out.println("\n strProjectID ---------------- " + strProjectID);
-            System.out.println("\n After scenario ---------------- " + afterScenario.getName());
-            strRunID = String.valueOf(TestLodge_ShortCutIntegrationUtil.getTestLodgeTestRunDetails(strAccountID, strTestRunID, strUsername, strPassword, strProjectID, afterScenario.getName()));
-
-            System.out.println("\n strRunID ---------------- " + strRunID);
-            System.out.println("\n strTestcaseID ---------------- " + strTestcaseID);
-           if (strRunID.equalsIgnoreCase(strTestcaseID)) {
-               strIssueTrackerNumber = TestLodge_ShortCutIntegrationUtil.updateTestResultforTestcase(strRunID, scenarioStatus);
-           }
-           else {
-               throw new RuntimeException("Invalid testcase mapping");
-           }
-
-
-            System.out.println("\n strIssueTrackerNumber ---------------- " + strIssueTrackerNumber);
-        }
     }
 }
