@@ -1,0 +1,86 @@
+config:
+   browser_name: chrome
+
+waits:
+   object_wait_time: 60
+   waitTime: 70
+
+email:
+   enable: false
+   sender: prajasekar@codoid.com
+   recipient: vasanth.g@codoid.com
+   ccrecipient: prajasekar@codoid.com
+   smtpHost: smtp.gmail.com
+   smtpPort: 587
+   password: XXXXX
+   subject: Automation Execution Status
+
+testrail:
+   enable: false
+   engine_url: https://vijay0124.testrail.io/
+   username: vijaysingaram87@gmail.com
+   password: Vijay@22
+   existing_run:
+      run_id: 27
+   new_run:
+      enable: false
+      run_name: Smoke Run 01
+      project_id: 15
+      suite_id: 13
+      run_id: "null"
+testlodge:
+   enable: false
+   username : indhumathi.k@codoid.com
+   password: JO0JgnzktF7MxQIOZaFBCPdGxxZtEc8oQko3QjepZCMfMGyKyXV8tQtt
+   Existing_run:
+    Run_ID : 743143
+    ProjectID: 57449
+    AccountID: 39559
+
+
+db_connection:
+   jdbc_url: jdbc:mysql://sql12.freesqldatabase.com:3306/sql12675451
+   username: sql12675451
+   password: SLU379IN98
+
+api:
+   base_url: https://reqres.in/
+
+BrowserStack:
+   Username: tamilselvanr_S673kn
+   AutomateKey: Yd4seHihe3g19iqCpjrz
+   URL: https://api-cloud.browserstack.com/app-automate/upload
+   ExistingAppDetailsURL: https://api-cloud.browserstack.com/app-automate/recent_apps
+   DeleteURL: https://api-cloud.browserstack.com/app-automate/app/delete/
+
+Windows:
+   Chrome:
+      os: Windows
+      osVersion: 11
+      browserName: Chrome
+      browserVersion: latest
+
+   Edge:
+      os: Windows
+      osVersion: 10
+      browserName: Edge
+      browserVersion: latest
+
+   Firefox:
+      os: Windows
+      osVersion: 10
+      browserName: Firefox
+      browserVersion: latest
+
+Catalina:
+   Safari:
+      os: "OS X"
+      osVersion: Catalina
+      browserName: Safari
+      browserVersion: 13.1
+
+   Chrome:
+      os: "OS X"
+      osVersion: Catalina
+      browserName: Chrome
+      browserVersion: latest
