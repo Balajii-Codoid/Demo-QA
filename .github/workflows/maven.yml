@@ -28,4 +28,4 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn clean test -Dexecution_type=browser -Denv=PROD -Dapp=SpringPoc -Dbrowser_name=chrome -Drunner=TestRunner -Dcucumber.filter.tags=@Demo_ShoppersStop -Dheadless=headless
+      run: mvn clean test -Dexecution_type=browser -Denv=PROD -Dapp=SpringPoc -Dbrowser_name=chrome -Drunner=TestRunner -Dcucumber.filter.tags=@Demo_ShoppersStop
