@@ -1,39 +1,37 @@
 name: Java CI with Maven
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_dispatch:  # This allows the workflow to be triggered via API
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-    - name: Set up JDK 17
-      uses: actions/setup-java@v3
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        cache: maven
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
 
-    - name: Make Directory for results
-      run: mkdir -p testResults
+      - name: Make Directory for results
+        run: mkdir -p testResults
 
-    - name: Set Permissions for HTML Report
-      run: chmod -R 777 testResults
+      - name: Set Permissions for HTML Report
+        run: chmod -R 777 testResults
 
-    - name: Build with Maven
-      run: mvn clean test -Dexecution_type=browser -Denv=PROD -Dapp=SpringPoc -Dbrowser_name=chrome -Drunner=TestRunner -Dcucumber.filter.tags=@Demo_ShoppersStop -Dheadless=headless
+      - name: Build with Maven
+        run: mvn clean test -Dexecution_type=browser -Denv=PROD -Dapp=SpringPoc -Dbrowser_name=chrome -Drunner=TestRunner -Dcucumber.filter.tags=@Demo_ShoppersStop -Dheadless=headless
 
-    - name: Copy HTML report
-      run: cp reports/Extent-Report/QA-Results.html $GITHUB_WORKSPACE/QA-Test-Report.html
+      - name: Copy HTML report
+        run: cp reports/Extent-Report/QA-Results.html $GITHUB_WORKSPACE/testResults/QA-Test-Report.html
 
-    - name: Upload the HTML report as an artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: QA-Test-Report
-        path: QA-Test-Report.html
+      - name: Upload the HTML report as an artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: QA-Test-Report
+          path: testResults/QA-Test-Report.html
