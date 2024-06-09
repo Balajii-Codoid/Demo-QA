@@ -15,7 +15,7 @@ jobs:
       - uses: convictional/trigger-workflow-and-wait@v1.3.0
         with:
           owner: Balajii-Codoid
-          repo: DemoGitActions
+          repo: Demo-QA
           github_token: ${{ secrets.G_ACCESS_TOKEN }}
           workflow_file_name: maven.yml
       - name: Deploy Web App
