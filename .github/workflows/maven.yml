@@ -11,7 +11,7 @@ jobs:
       - name: Build Web App
         run: |
           echo "Build Web App"
-          sleep 10s
+          sleep 11s
       - uses: convictional/trigger-workflow-and-wait@v1.3.0
         with:
           owner: Balajii-Codoid
